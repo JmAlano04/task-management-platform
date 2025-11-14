@@ -160,5 +160,22 @@ public function createTaskstore(Request $request)
 
 
 
-   
+     public function start(Task $task)
+    {
+        $task->status = 'in_progress';
+        $task->save();
+
+        return redirect()->back()->with('success', 'Task started successfully!');
+    }
+
+    // Complete task
+    public function complete( Task $task)
+    {
+        $task->status = 'completed';
+
+
+        $task->save();
+
+        return redirect()->back()->with('success', 'Task completed successfully!');
+    }
 }
