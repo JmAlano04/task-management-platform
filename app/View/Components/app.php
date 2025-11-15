@@ -16,6 +16,8 @@ class app extends Component
         //
     }
 
+    
+
     /**
      * Get the view / contents that represent the component.
      */

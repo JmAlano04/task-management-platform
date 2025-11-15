@@ -1,7 +1,4 @@
 
-
-
-
 <li class="group">
     <a href="{{ route('createTask') }}"
        class="flex items-center justify-center w-12 h-12 rounded-lg transition-all duration-300
