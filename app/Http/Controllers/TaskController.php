@@ -54,6 +54,7 @@ class TaskController extends Controller
         })
         ->get();
 
+            
     $html = view('profile.partials.table.task-management', compact('task'))->render();
 
     return response()->json(['html' => $html]);

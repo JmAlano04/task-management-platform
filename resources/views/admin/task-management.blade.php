@@ -107,6 +107,7 @@
                     <th class="px-6 py-3 text-left">Description</th>
                     <th class="px-6 py-3 text-left">Due Date</th>
                     <th class="px-6 py-3 text-left">Status</th>
+                    <th class="px-6 py-3 text-left">Action</th>
                 </tr>
             </thead>
             <tbody id="table-body" class="text-gray-800 dark:text-gray-200">

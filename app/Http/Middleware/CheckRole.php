@@ -13,13 +13,16 @@ class CheckRole
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     * @param  string  $role  // role passed from route middleware
+     * @param  string  $role
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function handle(Request $request, Closure $next, string $role): Response
     {
-        
-        if (!auth()->check() || auth()->user()->role !== $role) {
-            abort(403, 'Unauthorized'); // or redirect('/dashboard')
+        $user = $request->user();
+
+        if (!$user || $user->role !== $role) {
+            // Redirect to custom 403 Blade template
+            return response()->view('error.403', [], 403);
         }
 
         return $next($request);
