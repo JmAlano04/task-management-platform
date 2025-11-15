@@ -14,8 +14,6 @@ class AdminController extends Controller
      public function index()
     {   
         $perPage = request()->get('perPage', 10); 
-
-        
         $tasks = Task::with(['creator', 'taker'])
                     ->where( 'status' , '=' , 'In_progress')
                     ->orderBy('created_at', 'desc')
@@ -60,8 +58,8 @@ class AdminController extends Controller
 
     public function filter(Request $request)
     {
-        $role = $request->get('role'); // get the role from query
-        $perPage = $request->get('perPage', 10); // optional pagination
+        $role = $request->get('role');
+        $perPage = $request->get('perPage', 10); 
 
         $usersQuery = User::query();
 
@@ -77,11 +75,11 @@ class AdminController extends Controller
 
 
       public function manage()
-{
-    $perPage = request()->get('perPage', 10); // optional: get per-page from query, default 10
-    $users = User::orderBy('id', 'desc')->paginate($perPage); // paginate users
-    return view('admin.manage-user-account', compact('users'));
-}
+    {
+        $perPage = request()->get('perPage', 10); 
+        $users = User::orderBy('id', 'desc')->paginate($perPage);
+        return view('admin.manage-user-account', compact('users'));
+    }
 
 
     public function store(Request $request)
@@ -102,6 +100,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'User created successfully!');
     }
+
     public function destroy(User $user)
     {
         $user->delete();
@@ -111,38 +110,37 @@ class AdminController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $user = User::findOrFail($id);
-
-    $user->update([
-        'name' => $request->name,
-        'email' => $request->email,
-        'role' => $request->role,
-        'password' => $request->filled('password') 
-            ? Hash::make($request->password) 
-            : $user->password,
-    ]);
-
-    return redirect()->back()->with('success', 'User updated successfully!');
-}
-public function search(Request $request)
-{
-    $query = $request->input('query');
-
-    $task = Task::with(['creator', 'taker'])
-        ->where('title', 'like', "%{$query}%")
-        ->orWhere('description', 'like', "%{$query}%")
-        ->orWhereHas('creator', function ($q) use ($query) {
-            $q->where('name', 'like', "%{$query}%");
-        })
-        ->orWhereHas('taker', function ($q) use ($query) {
-            $q->where('name', 'like', "%{$query}%");
-        })
-        ->get();
-
-    $html = view('profile.partials.table.manage-account', compact('task'))->render();
-
-    return response()->json(['html' => $html]);
+    {
+        $user = User::findOrFail($id);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => $request->role,
+            'password' => $request->filled('password') 
+                ? Hash::make($request->password) 
+                : $user->password,
+        ]);
+        return redirect()->back()->with('success', 'User updated successfully!');
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $task = Task::with(['creator', 'taker'])
+            ->where('title', 'like', "%{$query}%")
+            ->orWhere('description', 'like', "%{$query}%")
+            ->orWhereHas('creator', function ($q) use ($query) {
+                $q->where('name', 'like', "%{$query}%");
+            })
+            ->orWhereHas('taker', function ($q) use ($query) {
+                $q->where('name', 'like', "%{$query}%");
+            })
+            ->get();
+
+        $html = view('profile.partials.table.manage-account', compact('task'))->render();
+
+        return response()->json(['html' => $html]);
+        }
 
 }
