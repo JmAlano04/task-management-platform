@@ -121,9 +121,6 @@
                 @include('profile.partials.table.creator-management', [ 'taskForcreator' => $taskForcreator])
             @endif
 
-             {{-- @if($user->role === 'taker')
-                @include('profile.partials.table.creator-management', [ 'taskForcreator' => $taskForcreator])
-            @endif --}}
         </table>
 
        

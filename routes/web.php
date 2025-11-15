@@ -24,16 +24,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(['role:creator'])->group(function () {
         Route::get('/Create/management', [TaskController::class, 'taskManagement'])->name('createTask');
 
-         Route::post('/Create/management/store', [TaskController::class, 'createTaskstore'])->name('createtask.store');
+        Route::post('/Create/management/store', [TaskController::class, 'createTaskstore'])->name('createtask.store');
         Route::put('/Create/management/{id}', [TaskController::class, 'createTaskupdate'])->name('createtask.update');
-        Route::delete('/Create/management/{id}', [TaskController::class, 'createTaskdestroy'])->name('createtask.destroy');
-        //  Route::get('/task-management/search', [TaskController::class, 'search'])
-        // ->name('task-management.search');
-        // Route::post('/task-management/store', [TaskController::class, 'store'])->name('task.store');
-        // Route::put('/task-management/{id}', [TaskController::class, 'update'])->name('task.update');
-        // Route::delete('/task-management/destroy/{id}', [TaskController::class, 'destroy'])->name('task-management.destroy');
-        
-   
+        Route::delete('/Create/management/{id}', [TaskController::class, 'createTaskdestroy'])->name('createtask.destroy');   
     });
 
     // Task taker routes
@@ -41,8 +34,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/tasks/my', [TaskController::class, 'mytask'])->name('tasks.my');
         Route::post('/tasks/{task}/start', [TaskController::class, 'start'])->name('tasks.start');
         Route::post('/tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
-
-        // Route::post('/tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
     });
 
     // // Admin
