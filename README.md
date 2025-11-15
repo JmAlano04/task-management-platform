@@ -17,7 +17,6 @@ The app allows users to create, assign, and manage tasks efficiently with role-b
 
 - Role-based user access: Creator, Taker, Admin
 - Task creation, assignment, and completion
-- File attachments for tasks
 - Responsive UI with Vite and Blade templates
 - Database migrations and seeding for initial data
 
@@ -27,7 +26,7 @@ The app allows users to create, assign, and manage tasks efficiently with role-b
 
 - PHP >= 8.1
 - Composer
-- MySQL / MariaDB
+- MySQL
 - Node.js & NPM (for Vite)
 - XAMPP or equivalent local server
 
@@ -40,29 +39,29 @@ The app allows users to create, assign, and manage tasks efficiently with role-b
 git clone https://github.com/JmAlano04/task-management-platform
 cd task-management-platform
 
-Install PHP dependencies
+2.Install PHP dependencies
 
-composer install
-
-
-Install Node dependencies
-
-npm install
+3.composer install
 
 
-Copy the .env file
+4.Install Node dependencies
 
-copy .env.example .env    # Windows
+5. npm install
+
+
+6. Copy the .env file
+
+7. copy .env.example .env    # Windows
 # OR
 cp .env.example .env      # Mac/Linux
 
 
-Generate application key
+8.Generate application key
 
 php artisan key:generate
 
 
-Set up your database
+9.Set up your database
 
 Create a database in MySQL
 
@@ -86,7 +85,7 @@ php artisan migrate
 php artisan db:seed
 
 
-Build frontend assets
+10. Build frontend assets
 
 For development (hot reload):
 
@@ -98,6 +97,6 @@ For production:
 npm run build
 
 
-Start the Laravel development server
+11.Start the Laravel development server
 
 php artisan serve
