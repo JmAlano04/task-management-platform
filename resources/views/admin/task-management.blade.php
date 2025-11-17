@@ -127,7 +127,7 @@
 
         </table>
 
-        <livewire:task-search />
+     
 
         <div class="mt-4 flex flex-col sm:flex-row items-center justify-between px-4 py-4 bg-gray-50 border-t rounded-md">
             <div class="text-sm text-gray-600">
