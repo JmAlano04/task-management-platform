@@ -103,8 +103,15 @@
         <table class="min-w-[1200px] bg-white dark:bg-gray-700 rounded-lg shadow overflow-hidden mx-auto"> 
             <thead class="bg-white text-dark shadow-md">
                 <tr>
-                    <th class="px-6 py-3 text-left">Task#</th>
-                    <th class="px-6 py-3 text-left">Created By</th>
+                      @if($user->role === 'admin')
+                             <th class="px-6 py-3 text-left">Task#</th>
+                             <th class="px-6 py-3 text-left">Created By</th>
+                            @endif
+                            @if($user->role === 'creator')
+                                <th hidden class="px-6 py-3 text-left">Task#</th>
+                                <th hidden class="px-6 py-3 text-left">Created By</th>
+                             @endif
+                   
                     <th class="px-6 py-3 text-left">Title</th>
                     <th class="px-6 py-3 text-left">Assigned To</th>
                     <th class="px-6 py-3 text-left">Description</th>
