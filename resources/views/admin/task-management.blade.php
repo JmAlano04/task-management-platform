@@ -53,7 +53,7 @@
                 type="text"
                 id="search"
                 placeholder="Search..."
-                data-url="{{ route('task-management.search') }}"
+                data-url="{{ route('create.search') }}"
                 class="w-96 border border-gray-300 rounded-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" />
         
         <button 
@@ -124,13 +124,13 @@
                 @php
                 $user = Auth::user();
                 @endphp
-           @if($user->role === 'admin')
-                @include('profile.partials.table.task-management', ['task' => $task])
-            @endif
+           {{-- @if($user->role === 'admin') --}}
+                @include('profile.partials.table.task-management', ['task' => $task , 'taskForcreator' => $taskForcreator])
+            {{-- @endif --}}
 
-            @if($user->role === 'creator')
+            {{-- @if($user->role === 'creator')
                 @include('profile.partials.table.creator-management', [ 'taskForcreator' => $taskForcreator])
-            @endif
+            @endif --}}
 
         </table>
 

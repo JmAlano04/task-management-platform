@@ -26,6 +26,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //Creator Routes
     Route::middleware(['role:creator'])->group(function () {
         Route::get('/Create/management', [TaskController::class, 'taskManagement'])->name('createTask');
+         Route::get('/Create/search', [TaskController::class, 'searchCreate'])
+        ->name('create.search');
         Route::post('/Create/management/store', [TaskController::class, 'createTaskstore'])->name('createtask.store');
         Route::put('/Create/management/{id}', [TaskController::class, 'createTaskupdate'])->name('createtask.update');
         Route::delete('/Create/management/{id}', [TaskController::class, 'createTaskdestroy'])->name('createtask.destroy');   

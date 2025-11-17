@@ -59,6 +59,28 @@ class TaskController extends Controller
 
     return response()->json(['html' => $html]);
     }
+    public function searchCreate(Request $request)
+{
+    $query = $request->input('query');
+
+    $taskForcreator = Task::query()
+        ->where('title', 'like', "%{$query}%")
+        ->orWhere('description', 'like', "%{$query}%")
+        ->orWhereHas('creator', function ($q) use ($query) {
+            $q->where('name', 'like', "%{$query}%");
+        })
+        ->orWhereHas('taker', function ($q) use ($query) {
+            $q->where('name', 'like', "%{$query}%");
+        })
+        ->get();
+
+    
+    $html = view('profile.partials.table.creator-management', [
+        'taskForcreator' => $taskForcreator
+    ])->render();
+
+    return response()->json(['html' => $html]);
+}
 
     public function store(Request $request)
     {

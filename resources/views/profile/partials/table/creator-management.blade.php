@@ -1,14 +1,5 @@
  @forelse ($taskForcreator as $taskForcreators)
                         <tr class="hover:bg-secondary-light transition duration-150 ease-in-out">
-                             @if($user->role === 'admin')
-                            <td class="px-6 py-3">{{ $taskForcreators->id ?? 'N/A' }}</td>
-                            <td class="px-6 py-3">{{ $taskForcreators->creator?->name ?? 'N/A' }}</td>
-                            @endif
-                            @if($user->role === 'creator')
-                                <td hidden class="px-6 py-3">{{ $taskForcreators->id ?? 'N/A' }}</td>
-                                <td hidden class="px-6 py-3">{{ $taskForcreators->creator?->name ?? 'N/A' }}</td>
-                            @endif
-                   
                             <td class="px-6 py-3">{{ $taskForcreators->title ?? 'N/A' }}</td>
                             <td class="px-6 py-3">{{ $taskForcreators->taker?->name ?? 'N/A' }}</td>
                             <td class="px-6 py-3">{{ $taskForcreators->description ?? 'N/A' }}</td>
