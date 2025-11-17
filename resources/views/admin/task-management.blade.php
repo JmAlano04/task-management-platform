@@ -78,6 +78,9 @@
                 data-url="{{ route('task-management.search') }}"
                 class="w-96 border border-gray-300 rounded-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" />
         
+
+        {{-- <input type="text" wire:model.live="search" placeholder="Search tasks..." class="form-control"> --}}
+
         <button 
             @click="
                 modalType = 'add';
@@ -124,7 +127,8 @@
 
         </table>
 
-       
+        <livewire:task-search />
+
         <div class="mt-4 flex flex-col sm:flex-row items-center justify-between px-4 py-4 bg-gray-50 border-t rounded-md">
             <div class="text-sm text-gray-600">
                 Showing {{ $task->firstItem() }} to {{ $task->lastItem() }} of {{ $task->total() }} task
@@ -353,7 +357,7 @@
 
 <!-- Scripts for search-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-@vite('resources/js/ajax_search.js')
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
 </x-app-layout>

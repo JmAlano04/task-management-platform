@@ -22,6 +22,7 @@ class User extends Authenticatable
          'role',
         'password',
     ];
+
      // Tasks created by the user
     public function createdTasks()
     {
@@ -34,11 +35,6 @@ class User extends Authenticatable
         return $this->hasMany(Task::class, 'taker_id');
     }
 
-    // Optional: Activity logs
-    // public function activityLogs()
-    // {
-    //     return $this->hasMany(ActivityLog::class);
-    // }
     public function hasRole($role)
     {
         return $this->role === $role;

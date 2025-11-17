@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    {{--  ADD USER MODAL --}}
+    {{--  add User Modal --}}
     <div 
         x-show="showModal" 
         x-transition.opacity
@@ -251,6 +251,6 @@
 
 <!-- Scripts for search-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-@vite('resources/js/ajax_search.js')
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </x-app-layout>

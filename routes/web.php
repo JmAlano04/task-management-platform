@@ -9,6 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -16,14 +17,15 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
      
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
    
-    // // Creator Routes
+    //Creator Routes
     Route::middleware(['role:creator'])->group(function () {
         Route::get('/Create/management', [TaskController::class, 'taskManagement'])->name('createTask');
-
         Route::post('/Create/management/store', [TaskController::class, 'createTaskstore'])->name('createtask.store');
         Route::put('/Create/management/{id}', [TaskController::class, 'createTaskupdate'])->name('createtask.update');
         Route::delete('/Create/management/{id}', [TaskController::class, 'createTaskdestroy'])->name('createtask.destroy');   
@@ -36,7 +38,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
     });
 
-    // // Admin
+    // Admin
     Route::middleware(['role:admin'])->group(function () {
 
         Route::get('/manage/filter', [AdminController::class, 'filter'])->name('manage.index');
