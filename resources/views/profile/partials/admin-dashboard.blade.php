@@ -112,7 +112,7 @@
     <div class="bg-green-50 dark:bg-gray-700 p-6 rounded-lg shadow flex items-center justify-between">
         <div>
             <h4 class="text-lg font-semibold text-green-700 dark:text-green-400">Completed</h4>
-            <p class="text-3xl font-bold mt-2 text-gray-900 dark:text-white">{{ $totalCompleted }}</p>
+            <p class="text-3xl font-bold mt-2 text-gray-900 dark:text-white">{{ $takerCompleted }}</p>
         </div>
         <i data-lucide="check-circle" class="w-10 h-10 text-green-600 dark:text-green-300"></i>
     </div>
