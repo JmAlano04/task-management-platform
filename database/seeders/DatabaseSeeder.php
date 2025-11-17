@@ -21,10 +21,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(UserRoleSeeder::class);
-//    $this->call([
-       
-//         TasksTableSeeder::class,
-//     ]);
+
+        $this->call(TasksTableSeeder::class);
+
 
 
     }
