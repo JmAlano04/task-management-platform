@@ -20,13 +20,14 @@
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
 
              <!-- Sidebar -->
-            <aside class="w-16 h-screen fixed top-0 left-0 bg-pink-600 shadow-lg flex flex-col items-center rounded-r-xl">
+            <aside class= "w-56 h-screen fixed top-0 left-0 bg-white shadow-md flex flex-col items-center rounded-r-xl">
                 @include('layouts.sidebar')
             </aside>
 
-           
+
+                 
               <!-- Main Content -->
-            <div class="flex-1 ml-[66px] mr-1 ">
+            <div class="flex-1 ml-[220px]  ">
                 @include('layouts.navigation')
 
                 <!-- Page Heading -->
