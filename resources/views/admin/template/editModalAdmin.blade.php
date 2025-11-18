@@ -27,7 +27,7 @@
                 type="text" 
                 name="title" 
                 x-model="modalData.title"
-                class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
+                class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
                 placeholder="Enter task title"
                 required
             >
@@ -40,7 +40,7 @@
                 name="description" 
                 rows="3" 
                 x-model="modalData.description"
-                class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
+                class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
                 placeholder="Enter task description"
                 required
             ></textarea>
@@ -52,7 +52,7 @@
     <select 
         name="taker_id" 
         x-model="modalData.taker_id"
-        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
+        class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
         required
     >
         <option value="">Select a user</option>
@@ -81,7 +81,7 @@
                 type="date" 
                 name="due_date" 
                 x-model="modalData.due_date"
-                class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
+                class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
                 required
             >
         </div>
@@ -92,7 +92,7 @@
             <select 
                 name="status" 
                 x-model="modalData.status"
-                class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
+                class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
                 required
             >
                 <option value="pending" :selected="modalData.status == 'pending'">Pending</option>
