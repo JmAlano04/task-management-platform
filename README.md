@@ -35,31 +35,28 @@ The app allows users to create, assign, and manage tasks efficiently with role-b
 
 ## Installation / Setup
 
+**GO TO CMD locate cd c:/xampp/htdocs**
+
 1. **Clone the repository**
 ```bash
 git clone https://github.com/JmAlano04/task-management-platform
 cd task-management-platform
 
-Install PHP dependencies
+**Install PHP dependencies**
+2. composer install
 
-2.composer install
-
-
-Install Node dependencies
+**Install Node dependencies**
 3. npm install
 
-
-Copy the .env file
-
+**Copy the .env file**
 4. copy .env.example .env    # Windows
 # OR
 cp .env.example .env      # Mac/Linux
 
-Generate application key
+**Generate application key**
 5.php artisan key:generate
 
-
-Set up your database Create a database in MySQL
+**Set up your database Create a database in MySQL**
 6.Update .env file with database credentials
 
 DB_CONNECTION=mysql
@@ -69,28 +66,23 @@ DB_DATABASE=your_db_name
 DB_USERNAME=your_db_user
 DB_PASSWORD=your_db_password
 
-
-Run migrations
+**Run migrations**
 8.php artisan migrate
 
-
-(Optional) Seed the database
-
+**(Optional) Seed the database**
 9.php artisan db:seed --class=UserRoleSeeder 
   php artisan db:seed --class=TasksTableSeeder
 
-
-Build frontend assets
+**Build frontend assets**
 For development (hot reload):
-
 10.npm run dev
 
 For production:
 
 11.npm run build
 
-Start the Laravel development server
 
+**Start the Laravel development server**
 12.php artisan serve
 
 
