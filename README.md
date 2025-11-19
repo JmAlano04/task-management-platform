@@ -70,8 +70,8 @@ DB_PASSWORD=your_db_password
 8.php artisan migrate
 
 **(Optional) Seed the database**
-9.php artisan db:seed --class=UserRoleSeeder 
-  php artisan db:seed --class=TasksTableSeeder
+9.php artisan db:seed --class=UserRoleSeeder  # SEED IT FIRTS
+  php artisan db:seed --class=TasksTableSeeder # SEED IT NEXT
 
 **Build frontend assets**
 For development (hot reload):
