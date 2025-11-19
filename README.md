@@ -54,7 +54,7 @@ cd task-management-platform
 cp .env.example .env      # Mac/Linux
 
 **Generate application key**
-5.php artisan key:generate
+5.php artisan key:generate  
 
 **Set up your database Create a database in MySQL**
 6.Update .env file with database credentials

@@ -22,7 +22,6 @@
                     class="w-[400px]  mx-2 p-1 text-black border rounded focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400" 
                     required>
                     <option value="">Select a user</option>
-                <option value="">Select a user</option>
                 @foreach($users->where('role', 'taker') as $taker)
                     <option value="{{ $taker->id }}">{{ $taker->name }}</option>
                 @endforeach
