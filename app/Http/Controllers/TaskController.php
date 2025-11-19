@@ -13,7 +13,7 @@ class TaskController extends Controller
     public function taskManagement()
     {
         $perPage = request()->get('perPage', 10);
-
+        
         $task = Task::with(['creator', 'taker'])
                     ->orderBy('created_at', 'desc')
                     ->paginate($perPage);

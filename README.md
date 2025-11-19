@@ -29,6 +29,7 @@ The app allows users to create, assign, and manage tasks efficiently with role-b
 - MySQL
 - Node.js & NPM (for Vite)
 - XAMPP or equivalent local server
+- Git
 
 ---
 
@@ -39,33 +40,27 @@ The app allows users to create, assign, and manage tasks efficiently with role-b
 git clone https://github.com/JmAlano04/task-management-platform
 cd task-management-platform
 
-2.Install PHP dependencies
+Install PHP dependencies
 
-3.composer install
-
-
-4.Install Node dependencies
-
-5. npm install
+2.composer install
 
 
-6. Copy the .env file
+Install Node dependencies
+3. npm install
 
-7. copy .env.example .env    # Windows
+
+Copy the .env file
+
+4. copy .env.example .env    # Windows
 # OR
 cp .env.example .env      # Mac/Linux
 
-
-8.Generate application key
-
-php artisan key:generate
+Generate application key
+5.php artisan key:generate
 
 
-9.Set up your database
-
-Create a database in MySQL
-
-Update .env file with database credentials
+Set up your database Create a database in MySQL
+6.Update .env file with database credentials
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -76,27 +71,41 @@ DB_PASSWORD=your_db_password
 
 
 Run migrations
-
-php artisan migrate
+8.php artisan migrate
 
 
 (Optional) Seed the database
 
-php artisan db:seed
+9.php artisan db:seed --class=UserRoleSeeder 
+  php artisan db:seed --class=TasksTableSeeder
 
 
-10. Build frontend assets
-
+Build frontend assets
 For development (hot reload):
 
-npm run dev
-
+10.npm run dev
 
 For production:
 
-npm run build
+11.npm run build
+
+Start the Laravel development server
+
+12.php artisan serve
 
 
-11.Start the Laravel development server
+-- USER ROLE ACCOUNT
+ADMIN 
 
-php artisan serve
+admin@example.com
+password
+
+Creator
+
+creator1@example.com
+password
+
+Taker
+
+Taker1@example.com
+password
